@@ -8,6 +8,11 @@ router.get('/', transactionsController.getAllTransactions);
 //Definir uma rota para adiconar uma nova transação
 router.post('/', transactionsController.addTransactions);
 
+//Definindo uma rota para atualizar uma transação existente(substituição completa)
+router.put('/:id', transactionsController.updateTransactionPut);
+
+//Definindo uma rota para atualizar uma transação existente(substituição completa)
+router.patch('/:id', transactionsController.updateTransactionPatch);
 
 
 //Exportando o roteador
