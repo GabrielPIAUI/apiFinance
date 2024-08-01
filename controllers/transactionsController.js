@@ -1,3 +1,4 @@
+const { query } = require('express');
 const db = require('../config/db'); //Importar a conexão com o Banco de Dados
 
 //Função para obter todas as transações
@@ -38,8 +39,8 @@ const updateTransactionPut = (req, res) => {
     [date, amount, description, category, account, user_id, id],
     (err, results) => {
         if(err) {
-            console.error('Erro ao adicionar transação', err);
-            res.status(500).send('Erro ao adicionar transação');
+            console.error('Erro ao atualizar transação', err);
+            res.status(500).send('Erro ao atualizar transação');
             return;
 }
     res.send('Transação atualizada com sucesso');
@@ -50,12 +51,53 @@ const updateTransactionPut = (req, res) => {
 //Função para atualizar uma transação existente (substituição completa)
 const updateTransactionPatch = (req, res) => {
     const{id} = req.params;
+    const fields = req.body;
+    const query = [];
+    const values = [];
+
+    for(const[key, value] of Object.entries(fields)) {
+        query.push(`${key} = ?`);
+        values.push(value);
+        }
+
+    values.push(id);
+
+    db.query(
+    `UPDATE transactions SET ${query.join(',')} WHERE id = ?`,
+    values,
+    (err, results) => {
+        if(err) {
+            console.error('Erro ao atualizar transação', err);
+            res.status(500).send('Erro ao atualizar transação');
+            return;
+        }
+    res.send('Transação atualizada com sucesso');
+    }
+    )
 }
+
+//Função para deletar  uma transação existente
+
+const deleteTransaction = (req, res) => {
+    const{id} = req.body;
+    db.query(
+        'DELETE FROM transactions WHERE id = ?', [id],
+        (err, results) => {
+            if(err) {
+                console.error('Erro ao deletar transação', err);
+                res.status(500).send('Erro ao deletar transação');
+                return;
+            }
+        res.send('Transação deletada com sucesso');
+        }
+    );
+};
 
 
 module.exports = {
     getAllTransactions,
     addTransactions,
     updateTransactionPut, 
-    updateTransactionPatch
+    updateTransactionPatch,
+    deleteTransaction
 }

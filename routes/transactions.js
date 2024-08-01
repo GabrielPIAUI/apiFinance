@@ -14,6 +14,9 @@ router.put('/:id', transactionsController.updateTransactionPut);
 //Definindo uma rota para atualizar uma transação existente(substituição completa)
 router.patch('/:id', transactionsController.updateTransactionPatch);
 
+//Definindo uma rota para deletar uma transação 
+router.delete('/:id', transactionsController.deleteTransaction);
+
 
 //Exportando o roteador
 module.exports = router;
