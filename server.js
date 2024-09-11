@@ -8,10 +8,10 @@ dotenv.config(); // Carrega as variáveis definidas no arquivo '.env' para proce
 const express = require('express'); // Importa o framework Express
 const cors = require('cors'); // Importa o pacote cors para permitir requisições de diferentes origens
 const bodyParser = require('body-parser'); // Importa o pacote body-parser para analisar o corpo das requisições HTTP
-
 const db = require('./config/db'); // Importa a conexão com o banco de dados
 
-const transactionsRoutes = require('./routes/transactions');
+const transactionsRoutes = require('./routes/transactions'); //Importa as rotas de transações
+const authRoutes = require('./routes/auth'); //Importa as rotas de autenticação
 
 //inicializar nova aplicação Express
 
@@ -26,6 +26,8 @@ app.use(bodyParser.json()); // Configura o body-parser para analisar requisiçõ
 //Usar as rotas de transações para todas as requisições que começam com /api/transactions
 app.use('/api/transactions', transactionsRoutes);
 
+//Configura o servidor para usar as rotas de autenticação
+app.use('/api/auth', authRoutes); //Configura o servidor para usar as rotas de transações
 
 //Rota inicial para testar o servidor
 
