@@ -4,19 +4,19 @@ const transactionsController = require('../controllers/transactionsController');
 const authMiddleware = require('../middlewares/authMiddleware'); //Importa o middleware de autenticação
 
 //Definir uma rota para obter todas as transações (protegida)
-router.get('/', transactionsController.getAllTransactions);
+router.get('/', authMiddleware, transactionsController.getAllTransactions);
 
-//Definir uma rota para adiconar uma nova transação
-router.post('/', transactionsController.addTransactions);
-
-//Definindo uma rota para atualizar uma transação existente(substituição completa)
-router.put('/:id', transactionsController.updateTransactionPut);
+//Definir uma rota para adiconar uma nova transação (protegida)
+router.post('/', authMiddleware, transactionsController.addTransactions);
 
 //Definindo uma rota para atualizar uma transação existente(substituição completa)
-router.patch('/:id', transactionsController.updateTransactionPatch);
+router.put('/:id', authMiddleware, transactionsController.updateTransactionPut);
 
-//Definindo uma rota para deletar uma transação 
-router.delete('/:id', transactionsController.deleteTransaction);
+//Definindo uma rota para atualizar uma transação existente(substituição parcial) (protegida)
+router.patch('/:id', authMiddleware, transactionsController.updateTransactionPatch);
+
+//Definindo uma rota para deletar uma transação (protegida)
+router.delete('/:id', authMiddleware, transactionsController.deleteTransaction);
 
 
 //Exportando o roteador

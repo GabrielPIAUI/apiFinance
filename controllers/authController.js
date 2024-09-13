@@ -13,18 +13,18 @@ const registerUser = async (req, res) => {
             [email]);
             if(existingUser.length > 0) {
                 return res.status(400).send('Usuário já registrado');
-            }
+           }
 
-            //Criptografar a senha usando bcrypt
-            const hashedPassword = await bcrypt.hash(password, 10);
+        //Criptografar a senha usando bcrypt
+        const hashedPassword = await bcrypt.hash(password, 10);
 
             //Inserir o novo usuário no banco de dados 
-            await db.promise().query(
-                'INSERT INTO users(name, email, password, birth_date) VALUES (?,?,?,?)',
-                [name, email, hashedPassword, birth_date]
-            );
+        await db.promise().query(
+            'INSERT INTO users(name, email, password, birth_date) VALUES (?,?,?,?)',
+            [name, email, hashedPassword, birth_date]
+        );
 
-            res.status(201).send('Usuário registrado com sucesso');
+        res.status(201).send('Usuário registrado com sucesso');
     } catch (err) {
         console.error('Erro ao registrar usuário: ', err);
         res.status(500).send('Erro ao registrar usuário');
@@ -53,10 +53,11 @@ const loginUser = async(req, res) => {
             const token = jwt.sign({userId: user[0].id}, process.env.JWT_SECRET, {expiresIn: '1h'});
 
             res.json({token});
-        } catch (err) {
-            console.error('Erro ao autenticar usuário:', err);
-            res.status(500).send('Erro ao autenticar usuário');
-        }
+    } 
+    catch (err) {
+        console.error('Erro ao autenticar usuário:', err);
+        res.status(500).send('Erro ao autenticar usuário');
+    }
 };
 
 module.exports = {
