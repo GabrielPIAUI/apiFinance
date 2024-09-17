@@ -1,6 +1,5 @@
 const db = require('../config/db'); //Importa a configuração do banco de dados
 const bcrypt = require('bcrypt'); //Importa o bcrypt para criptografar senhas
-const { query } = require('express');
 const jwt = require('jsonwebtoken'); //Importa o jsonwebtoken para gerar tokens JWT
 
 //Função para registrar um novo usuário
@@ -13,7 +12,7 @@ const registerUser = async (req, res) => {
             [email]);
             if(existingUser.length > 0) {
                 return res.status(400).send('Usuário já registrado');
-           }
+        }
 
         //Criptografar a senha usando bcrypt
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -31,7 +30,7 @@ const registerUser = async (req, res) => {
     }
 };
 
-//Função para autentica um usuário
+//Função para autenticar um usuário
 const loginUser = async(req, res) => {
     const {email, password} = req.body; //Desestrutura os dados do corpo da requisição
 
@@ -53,8 +52,7 @@ const loginUser = async(req, res) => {
             const token = jwt.sign({userId: user[0].id}, process.env.JWT_SECRET, {expiresIn: '1h'});
 
             res.json({token});
-    } 
-    catch (err) {
+    } catch (err) {
         console.error('Erro ao autenticar usuário:', err);
         res.status(500).send('Erro ao autenticar usuário');
     }

@@ -1,4 +1,3 @@
-const { query } = require('express');
 const db = require('../config/db'); //Importar a conexão com o Banco de Dados
 
 //Função para obter todas as transações
