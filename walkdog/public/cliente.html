@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+            <!--Dados para Navegador-->
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0">
+            <meta name="description" content="Programadores Front-End & Back-End, Senai.">
+            <meta name="keywords" content="HTML, CSS, JavaScript, Senai">
+            <meta name="author" content="Danilo Alan"> 
+            <meta name="author" content="Gabriel Rocha Silva Machado">
+            <meta name="author" content="Lucas Farrapo"> 
+            <meta name="author" content="William Araujo">
+            <!--Titulo do Site--> 
+            <title>Walk & Dog</title>
+            <link rel="stylesheet" href="/imagens/walkedog.svg">
+            <!-- Carregar um arquivo SVG como se fosse CSS. -->
+            <link rel="stylesheet" href="css/style.css">
+            <link rel="stylesheet" href="css/register.css">
+            <!-- Importar os arquivos CSS para a estilização. -->
+            
+</head>
+<body>
+    <!-- Corpo principal do documento HTML. -->
+    <header>
+        <!-- Cabeçalho da página. -->
+        <nav class="menu">
+                <button id="open-side-menu" class="open-side-menu">☰</button>
+                <!-- Botão de abertura do menu lateral. -->
+            <aside class="side-menu" id="side-menu">
+                <!-- Menu lateral. -->
+                <button id="close-side-menu" class="close-side-menu">&times;</button>
+                <!-- Botão de fechamento do menu lateral. -->
+                <ul>
+                    <!-- Lista de links presentes no menu lareal. -->
+                    <li class="item-menu"><a href="index.html">Início</a></li>
+                    <li class="item-menu"><a href="sobre.html">Sobre</a></li>
+                    <li class="item-menu"><a href="galeria.html">Galeria</a></li>
+                    <li class="item-menu"><a href="contato.html">Contato</a></li>
+                    <li class="item-menu"><a href="cliente.html">Sua Conta</a></li>
+                    <li class="item-menu"><a href="#">Agenda</a></li>
+                    <li class="item-menu"><a href="#">Histórico</a></li>
+                </ul>
+            </aside>
+        </nav>
+        <nav class="menu">
+            <a href="/index.html">
+                <img class="logo-2" src="/imagens/walkedogverdeclaro.png" alt="logo">
+            </a>
+            <!-- Link que redireciona para a página inicial através do logotipo. -->
+        </nav>
+            <div class="bots">
+                <!-- Div para os botões de login e registro. -->
+                <nav>
+                    <button id="menu-button" class="menu-button">Logout</button>
+                </nav>
+            </div>     
+    </header>
+    <div class="main-content">
+    <main class="corpo-cliente">
+        <nav class="corpo-conteudo">
+                <button id="cliente-button" class="cliente-button">Sua Conta</button>
+                    <div class="modal-cliente" id="cliente-area">
+                        <!-- Modal para o acesso de dados do cliente. -->
+                        <div class="modal-content-cliente">
+                            <div id="close-btn-register" class="close-btn">&times;</div>
+                            <!-- Botão de fechamento do modal de acesso de dados do cliente. -->
+                            <h2 class="Regis">Seus Dados</h2>
+                            <form class="form-regis" id="form-regis">
+                                <!-- Formulário de dados do cliente. -->
+                                <label class="regislab" >Nome</label>
+                                <input id="nomeC" type="text"   required><br>
+                                <!-- Campo do nome. -->
+                                <label class="regislab" >CPF</label>
+                                <input id="cpfC" type="text"  required><br>
+                                <!-- Campo para o CPF. -->
+                                <label class="regislab">Email</label>
+                                <input id="emailC" type="email"  required><br>
+                                <!-- Campo para o email. -->
+                                <label class="regislab">Senha</label>
+                                <input id="senClient" type="password" required><br>
+                                <!-- Campo para a senha. -->
+                            </form>
+                        </div>
+                    </div>
+                <button id="cliente-button" class="cliente-button">Seus Pets</button>
+                <div class="modal-pet" id="pet-area">
+                    <!-- Modal para o registro do dogwalker. -->
+                    <div class="modal-content-pet">
+                        <div id="close-btn-pet" class="close-btn">&times;</div>
+                        <!--Botão para fechamento do modal de registro do dogwalker. -->
+                        <h2 class="Regis">Registrar seu pet</h2>
+                        <form class="form-pet" id="form-pet">
+                            <!-- Formulário de registro do dogwalker. -->
+                            <label class="regislab">Nome</label>
+                            <input id="nomePet" type="text"><br>
+                            <!-- Campo do nome pet. -->
+                            <label class="regislab">Raça</label>
+                            <input id="raçaPET" type="text"><br>
+                            <!-- Campo da raça dp pet. -->
+                            <label class="regislab">Peso</label>
+                            <input class="peso" id="pesopet" type="text" ><br>
+                            <!-- Campo da peso do pet. -->
+                            <label class="regislab">Idade</label>
+                            <input id="idadePET" type="text"> <br>
+                            <!-- Campo da idade do pet. -->
+                            <div class="regisbuton"></div>
+                            <button class="ent-but-wal" type="submit">ENVIAR</button>
+                            <!-- Botão de submissão do formulário. -->
+                        </form>
+                    </div>
+                </div>                      
+        </nav>
+    </main>
+    <footer class="roda-pe-geral">
+        <!-- Rodapé da página. -->
+        <div class="titulos-midias">
+            <!-- Seçaõ das redes sociais e formas de pagamento. -->
+                <span class="title-midia1">REDES SOCIAIS
+                    <div class="img-midia-icon">
+                    <a class="whats" href="https://wa.me/558695533463"><img src="/imagens/svg-whats.svg"></a>
+                    <a class="insta" href="https://www.instagram.com/"><img src="/imagens/svg-insta.svg"></a>
+                    <a class="youtube" href="https://www.youtube.com/"><img src="/imagens/svg-youtube.svg"></a>
+                    </div>  
+                </span>
+                <span class="title-midia2">Formas De Pagamento
+                    <div class="img-midia-1">
+                        <img class="imagem-midia" src="/imagens/visa-svg.svg" alt="visa">
+                        <img class="imagem-midia" src="/imagens/pix-svg.svg" alt="pix">
+                        <img class="imagem-midia" src="/imagens/mastercard-svg.svg" alt="mastercard">
+                    </div>
+                </span>
+        </div>
+        <hr>
+        <div class="marca-registrada">
+            <h4>© 2024 WALK & DOG - Todos os direitos reservados.</h4>
+            <!-- Texto de copyright. -->
+        </div>
+    </footer>
+    </div>
+    
+<!-- Importação de arquivos JavaScript para funcionalidades da página. -->
+    <!-- <script type="module" src="/js/javascript.js"></script> -->
+    <script type="module" src="/js/registerlogin.js"></script>
+    <script type="module"src="/js/apicontroller.js"></script>
+    <!-- <script type="module" src="/js/modais.js"></script> -->
+    <script type="module" src="/js/latmenu.js"></script>
+</body>
+</html>
